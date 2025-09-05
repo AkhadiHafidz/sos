@@ -2,19 +2,22 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>SOS Offline 2 Pemain - Tunggu Pemain 2</title>
+  <title>SOS Offline 2 Pemain - Room</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>SOS Game - 2 Pemain</h1>
 
   <div id="setupScreen">
+    <h3>Pemain 1</h3>
     <input id="player1Name" placeholder="Nama Pemain 1">
     <button id="startBtn">Mulai Game</button>
   </div>
 
   <div id="waitScreen" style="display:none;">
-    <h2>Pemain 1 sudah siap</h2>
+    <h3>Pemain 1 siap</h3>
+    <p>Kode Ruangan: <span id="roomCodeDisplay"></span></p>
+    <h3>Pemain 2</h3>
     <input id="player2Name" placeholder="Nama Pemain 2">
     <button id="joinBtn">Gabung Pemain 2</button>
   </div>
@@ -24,3 +27,16 @@
     <div>
       Ukuran papan: 
       <input type="number" id="sizeInput" value="5" min="3" max="10">
+      <button id="resetBtn">Mulai Ulang</button>
+    </div>
+    <div id="board"></div>
+    <div>
+      <h3>Skor</h3>
+      <p id="score1Text"></p>
+      <p id="score2Text"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

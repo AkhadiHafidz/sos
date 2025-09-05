@@ -4,6 +4,7 @@ let turn = 0;
 let scores = [0, 0];
 let player1 = "";
 let player2 = "";
+let roomCode = "";
 
 const boardEl = document.getElementById("board");
 const turnInfo = document.getElementById("turnInfo");
@@ -13,10 +14,14 @@ const score2Text = document.getElementById("score2Text");
 const setupScreen = document.getElementById("setupScreen");
 const waitScreen = document.getElementById("waitScreen");
 const gameScreen = document.getElementById("gameScreen");
+const roomCodeDisplay = document.getElementById("roomCodeDisplay");
 
 document.getElementById("startBtn").onclick = () => {
   player1 = document.getElementById("player1Name").value.trim();
   if (!player1) return alert("Masukkan nama pemain 1!");
+  roomCode = generateRoomCode();
+  roomCodeDisplay.textContent = roomCode;
+
   setupScreen.style.display = "none";
   waitScreen.style.display = "block";
 };
@@ -26,6 +31,7 @@ document.getElementById("joinBtn").onclick = () => {
   if (!player2) return alert("Masukkan nama pemain 2!");
   waitScreen.style.display = "none";
   gameScreen.style.display = "block";
+
   size = parseInt(document.getElementById("sizeInput").value);
   startGame();
 };
@@ -34,6 +40,9 @@ document.getElementById("resetBtn").onclick = () => {
   gameScreen.style.display = "none";
   setupScreen.style.display = "block";
   boardEl.innerHTML = "";
+  player1 = "";
+  player2 = "";
+  roomCode = "";
 };
 
 function startGame() {
@@ -96,4 +105,13 @@ function checkSOS(r, c) {
     } catch {}
   }
   return points;
+}
+
+function generateRoomCode() {
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let code = "";
+  for (let i = 0; i < 4; i++) {
+    code += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return code;
 }
