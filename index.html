@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>SOS Offline 2 Pemain - Tunggu Pemain 2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>SOS Game - 2 Pemain</h1>
+
+  <div id="setupScreen">
+    <input id="player1Name" placeholder="Nama Pemain 1">
+    <button id="startBtn">Mulai Game</button>
+  </div>
+
+  <div id="waitScreen" style="display:none;">
+    <h2>Pemain 1 sudah siap</h2>
+    <input id="player2Name" placeholder="Nama Pemain 2">
+    <button id="joinBtn">Gabung Pemain 2</button>
+  </div>
+
+  <div id="gameScreen" style="display:none;">
+    <h2 id="turnInfo"></h2>
+    <div>
+      Ukuran papan: 
+      <input type="number" id="sizeInput" value="5" min="3" max="10">
